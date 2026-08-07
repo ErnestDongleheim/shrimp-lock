@@ -1,2 +1,2 @@
-# Example
-An example greeter plugin
+# Shrimp Lock
+Hey dude, shrimps only okay?
