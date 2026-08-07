@@ -45,7 +45,7 @@ public class ShrimpLockPlugin extends Plugin
 			client.setMenuEntries(Arrays.copyOf(entries, entries.length - 1));
 		}
 
-		if ("Drink".equals(event.getOption()))
+		if ("Drink".equals(event.getOption()) && event.getItemId() != 39651)
 		{
 			MenuEntry[] entries = client.getMenuEntries();
 			client.setMenuEntries(Arrays.copyOf(entries, entries.length - 1));
