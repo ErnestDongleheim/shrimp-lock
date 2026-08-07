@@ -39,8 +39,13 @@ public class ShrimpLockPlugin extends Plugin
 	@Subscribe
 	public void onMenuEntryAdded(MenuEntryAdded event)
 	{
-		if (("Eat".equals(event.getOption()) && event.getItemId() != SHRIMPS_ITEM_ID)
-			|| "Drink".equals(event.getOption()))
+		if ("Eat".equals(event.getOption()) && event.getItemId() != SHRIMPS_ITEM_ID)
+		{
+			MenuEntry[] entries = client.getMenuEntries();
+			client.setMenuEntries(Arrays.copyOf(entries, entries.length - 1));
+		}
+
+		if ("Drink".equals(event.getOption()))
 		{
 			MenuEntry[] entries = client.getMenuEntries();
 			client.setMenuEntries(Arrays.copyOf(entries, entries.length - 1));
