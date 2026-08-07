@@ -13,8 +13,8 @@ import net.runelite.client.plugins.PluginDescriptor;
 @Slf4j
 @PluginDescriptor(
 	name = "Shrimp Lock",
-	description = "Disables the Eat option on all food except Shrimps",
-	tags = {"food", "shrimp", "eat", "menu"}
+	description = "Disables the Eat option on all food except Shrimps, and the Drink option on all drinkable items",
+	tags = {"food", "shrimp", "eat", "drink", "menu"}
 )
 public class ShrimpLockPlugin extends Plugin
 {
@@ -39,7 +39,8 @@ public class ShrimpLockPlugin extends Plugin
 	@Subscribe
 	public void onMenuEntryAdded(MenuEntryAdded event)
 	{
-		if ("Eat".equals(event.getOption()) && event.getItemId() != SHRIMPS_ITEM_ID)
+		if (("Eat".equals(event.getOption()) && event.getItemId() != SHRIMPS_ITEM_ID)
+			|| "Drink".equals(event.getOption()))
 		{
 			MenuEntry[] entries = client.getMenuEntries();
 			client.setMenuEntries(Arrays.copyOf(entries, entries.length - 1));
