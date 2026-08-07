@@ -4,6 +4,7 @@ import javax.inject.Inject;
 import java.util.Arrays;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
+import net.runelite.api.MenuEntry;
 import net.runelite.api.events.MenuEntryAdded;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
