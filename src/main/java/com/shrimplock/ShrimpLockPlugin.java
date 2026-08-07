@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.MenuEntry;
 import net.runelite.api.events.MenuEntryAdded;
-import net.runelite.api.gameval.ItemID;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
@@ -19,6 +18,9 @@ import net.runelite.client.plugins.PluginDescriptor;
 )
 public class ShrimpLockPlugin extends Plugin
 {
+	// https://oldschool.runescape.wiki/w/Shrimps
+	private static final int SHRIMPS_ITEM_ID = 315;
+
 	@Inject
 	private Client client;
 
@@ -37,7 +39,7 @@ public class ShrimpLockPlugin extends Plugin
 	@Subscribe
 	public void onMenuEntryAdded(MenuEntryAdded event)
 	{
-		if ("Eat".equals(event.getOption()) && event.getItemId() != ItemID.SHRIMPS)
+		if ("Eat".equals(event.getOption()) && event.getItemId() != SHRIMPS_ITEM_ID)
 		{
 			MenuEntry[] entries = client.getMenuEntries();
 			client.setMenuEntries(Arrays.copyOf(entries, entries.length - 1));
